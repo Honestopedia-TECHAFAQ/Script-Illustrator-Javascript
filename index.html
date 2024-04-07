@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paint by Number</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    canvas {
+        border: 1px solid #000;
+    }
+</style>
+</head>
+<body>
+<canvas id="paintCanvas" width="400" height="400"></canvas>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var canvas = document.getElementById('paintCanvas');
+        var context = canvas.getContext('2d');
+        function drawShapesByNumber(number) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            if (number === 1) {
+                context.beginPath();
+                context.arc(200, 200, 50, 0, Math.PI * 2);
+                context.fillStyle = 'blue';
+                context.fill();
+            } else if (number === 2) {
+                context.fillStyle = 'red';
+                context.fillRect(100, 100, 200, 100);
+            }
+        }
+        drawShapesByNumber(1); // Example: Draw shape based on number 1
+    });
+</script>
+</body>
+</html>
